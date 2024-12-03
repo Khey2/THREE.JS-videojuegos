@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import Resize from './resize';
+
 
 //Scena y Camara
 const scene     = new THREE.Scene();
@@ -34,6 +36,15 @@ scene.add( cube );
 const ambientLight = new THREE.AmbientLight( 0x404040 );
 scene.add( ambientLight );
 
+//CREANDO UNA LUZ DIRECCIONAL
+//NOTA: la luz direccional tiene por DEFECTO x: 0, y:1, z: 0
+const directionalLight = new THREE.DirectionalLight();
+directionalLight.position.set( -10, 10 , 10 )
+ambientLight.add( directionalLight ); //la luz direccional sera HIJA de la luz AMBIENTAL.
+     
+
+
+
 
 function animate() {
 
@@ -42,3 +53,6 @@ function animate() {
 	renderer.render( scene, camera );
 }
 renderer.setAnimationLoop( animate );
+
+const resize = new Resize( camera );
+resize.start( renderer );
