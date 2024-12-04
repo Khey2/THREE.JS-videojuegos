@@ -10,7 +10,6 @@ class KeyListener{
     }
 
     down = (e) => {
-        console.log( e )
         if ( this.keys[e.keyCode] ) return;
         this.keys[e.keyCode] = true;
         this.caster([ e.keyCode, false, this.keys ]);
@@ -22,7 +21,6 @@ class KeyListener{
     }
 
     isPressed( keyCode ){
-        // console.log( keyCode )
         return ( this.keys[keyCode]) ? this.keys[keyCode] : false;
     }
 
