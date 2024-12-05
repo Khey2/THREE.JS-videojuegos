@@ -23,16 +23,14 @@ renderer.render ( scene, camera ); // Take 1 picture
 
 loopMachine.addCallback( ()=> {
     if( keyListener.isPressed( keyCode.ENTER  ) ) cube.rotation.y  += 0.02;
+    if( keyListener.isPressed( keyCode.UP_ARROW  ) ) cube.position.y  += 0.02;
+    if( keyListener.isPressed( keyCode.DOWN_ARROW) ) cube.position.y  -= 0.02;
+    
 	renderer.render( scene, camera );
 });
 
-//animation
-// function animate() {
-    
-// }
-// renderer.setAnimationLoop( animate );
 
 
 resize.start( renderer );
 loopMachine.start(); //ANIMACION SE PRENDE
-keyListener.start();
+keyListener.start(); // SE ESUCHAN LAS TECLAS
